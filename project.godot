@@ -22,13 +22,15 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
+"player": "res://Assets/Dialogue/Character/Player/player.dch",
 "rynn": "res://Assets/Dialogue/Character/Rynn/rynn.dch",
 "synn": "res://Assets/Dialogue/Character/Synn/synn.dch",
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch"
 }
 directories/dtl_directory={
-"rynnDialogue": "res://Assets/Dialogue/Character/rynnDialogue.dtl",
-"synnDialogue": "res://addons/dialogic/Modules/Style/synnDialogue.dtl"
+"player_altar_first_scene": "res://Assets/Dialogue/Character/Player/player_altar_first_scene.dtl",
+"rynnDialogue": "res://addons/dialogic/Modules/Style/synnDialogue.dtl",
+"synnDialogue": "res://Assets/Dialogue/Character/rynnDialogue.dtl"
 }
 glossary/default_case_sensitive=true
 variables={

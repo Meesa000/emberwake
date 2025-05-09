@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=4 uid="uid://h8ap7dimka8g"]
+[gd_scene load_steps=68 format=4 uid="uid://h8ap7dimka8g"]
 
 [ext_resource type="Script" uid="uid://vtbd2vyhqb23" path="res://character_body_2d.gd" id="1_fj7yv"]
 [ext_resource type="Texture2D" uid="uid://dy0ncuhc1wyoi" path="res://Assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png" id="1_gbfbk"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://s8t1ohexgob4" path="res://Assets/Ninja Adventure - Asset Pack/Backgrounds/Animated/Waterfall/TopSheet16x16.png" id="12_bc84e"]
 [ext_resource type="Texture2D" uid="uid://ew2km8am31ok" path="res://Assets/Ninja Adventure - Asset Pack/Actor/Characters/CamouflageRed/SeparateAnim/Idle.png" id="16_2u3nc"]
 [ext_resource type="Script" uid="uid://cu1bv2uicr08c" path="res://player_dialogue_manager.gd" id="16_ikiii"]
+[ext_resource type="AudioStream" uid="uid://fntomba3i6pa" path="res://Assets/Ninja Adventure - Asset Pack/Audio/Sounds/Voice/Voice5.wav" id="17_cbp6q"]
 [ext_resource type="Texture2D" uid="uid://dfjajqwmx2p2e" path="res://Assets/Ninja Adventure - Asset Pack/Actor/Characters/CamouflageGreen/SeparateAnim/Idle.png" id="17_udxuc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ioo17"]
@@ -2580,6 +2581,9 @@ height = 16.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_26xuy"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_bc84e"]
+radius = 12.0416
+
 [node name="World" type="Node2D"]
 texture_filter = 1
 
@@ -2683,8 +2687,23 @@ position = Vector2(1047, 464)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Synn/SynnTextTrigger"]
 shape = SubResource("CircleShape2D_26xuy")
 
+[node name="AudioManager" type="Node" parent="."]
+
+[node name="Rynn_SynnVoice" type="AudioStreamPlayer2D" parent="AudioManager"]
+stream = ExtResource("17_cbp6q")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="AudioManager"]
+
+[node name="AltarTriggerArea" type="Area2D" parent="."]
+position = Vector2(1073, 472)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AltarTriggerArea"]
+shape = SubResource("CircleShape2D_bc84e")
+
 [connection signal="area_entered" from="Player/Player Body/PlayerTriggerArea" to="Player/Player Body" method="_on_player_trigger_area_area_entered"]
 [connection signal="area_entered" from="Rynn/CharacterBody2D/RynnTextTrigger" to="Player/Player Body/PlayerDialogueManager" method="_on_rynn_text_trigger_area_entered"]
 [connection signal="area_exited" from="Rynn/CharacterBody2D/RynnTextTrigger" to="Player/Player Body/PlayerDialogueManager" method="_on_rynn_text_trigger_area_exited"]
 [connection signal="area_entered" from="Synn/SynnTextTrigger" to="Player/Player Body/PlayerDialogueManager" method="_on_synn_text_trigger_area_entered"]
 [connection signal="area_exited" from="Synn/SynnTextTrigger" to="Player/Player Body/PlayerDialogueManager" method="_on_synn_text_trigger_area_exited"]
+[connection signal="area_entered" from="AltarTriggerArea" to="Player/Player Body/PlayerDialogueManager" method="_on_altar_trigger_area_area_entered"]
+[connection signal="area_exited" from="AltarTriggerArea" to="Player/Player Body/PlayerDialogueManager" method="_on_altar_trigger_area_area_exited"]
