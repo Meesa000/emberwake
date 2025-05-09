@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=4 uid="uid://h8ap7dimka8g"]
+[gd_scene load_steps=75 format=4 uid="uid://h8ap7dimka8g"]
 
 [ext_resource type="Script" uid="uid://vtbd2vyhqb23" path="res://character_body_2d.gd" id="1_fj7yv"]
 [ext_resource type="Texture2D" uid="uid://dy0ncuhc1wyoi" path="res://Assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png" id="1_gbfbk"]
@@ -22,7 +22,6 @@
 [ext_resource type="Texture2D" uid="uid://dfjajqwmx2p2e" path="res://Assets/Ninja Adventure - Asset Pack/Actor/Characters/CamouflageGreen/SeparateAnim/Idle.png" id="17_udxuc"]
 [ext_resource type="Texture2D" uid="uid://dfixoupsovre8" path="res://Assets/Ninja Adventure - Asset Pack/Actor/Characters/Monk2/SeparateAnim/Idle.png" id="20_26xuy"]
 [ext_resource type="AudioStream" uid="uid://dak6x2ckwcm51" path="res://Assets/Ninja Adventure - Asset Pack/Audio/Musics/13 - Mystical.ogg" id="21_il2jm"]
-[ext_resource type="AudioStream" uid="uid://cacv77m0fxv63" path="res://Assets/Ninja Adventure - Asset Pack/Audio/Sounds/Voice/Voice10.wav" id="22_il2jm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ioo17"]
 texture = ExtResource("1_gbfbk")
@@ -2721,9 +2720,7 @@ stream = ExtResource("17_cbp6q")
 
 [node name="Music" type="AudioStreamPlayer2D" parent="AudioManager"]
 stream = ExtResource("21_il2jm")
-
-[node name="ShrineKeeperVoice" type="AudioStreamPlayer2D" parent="AudioManager"]
-stream = ExtResource("22_il2jm")
+autoplay = true
 
 [node name="AltarTriggerArea" type="Area2D" parent="."]
 position = Vector2(1073, 472)
@@ -2732,22 +2729,22 @@ position = Vector2(1073, 472)
 position = Vector2(1, 0)
 shape = SubResource("CircleShape2D_bc84e")
 
-[node name="ShrineKeeper" type="CharacterBody2D" parent="."]
+[node name="Monk" type="CharacterBody2D" parent="."]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ShrineKeeper"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Monk"]
 position = Vector2(1066, 388)
 sprite_frames = SubResource("SpriteFrames_bh8nc")
 animation = &"idle"
 frame_progress = 0.766474
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ShrineKeeper"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Monk"]
 position = Vector2(1066, 389)
 shape = SubResource("CapsuleShape2D_jjr1n")
 
-[node name="ShrineKeeperTriggerArea" type="Area2D" parent="ShrineKeeper"]
+[node name="MonkTriggerArea" type="Area2D" parent="Monk"]
 position = Vector2(1066, 391)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ShrineKeeper/ShrineKeeperTriggerArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Monk/MonkTriggerArea"]
 position = Vector2(-0.5, 4.5)
 shape = SubResource("RectangleShape2D_gggvi")
 
@@ -2758,5 +2755,5 @@ shape = SubResource("RectangleShape2D_gggvi")
 [connection signal="area_exited" from="Synn/SynnTextTrigger" to="Player/Player Body/PlayerDialogueManager" method="_on_synn_text_trigger_area_exited"]
 [connection signal="area_entered" from="AltarTriggerArea" to="Player/Player Body/PlayerDialogueManager" method="_on_altar_trigger_area_area_entered"]
 [connection signal="area_exited" from="AltarTriggerArea" to="Player/Player Body/PlayerDialogueManager" method="_on_altar_trigger_area_area_exited"]
-[connection signal="area_entered" from="ShrineKeeper/ShrineKeeperTriggerArea" to="Player/Player Body/PlayerDialogueManager" method="_on_shrine_keeper_trigger_area_area_entered"]
-[connection signal="area_exited" from="ShrineKeeper/ShrineKeeperTriggerArea" to="Player/Player Body/PlayerDialogueManager" method="_on_monk_trigger_area_area_exited"]
+[connection signal="area_entered" from="Monk/MonkTriggerArea" to="Player/Player Body/PlayerDialogueManager" method="_on_monk_trigger_area_area_entered"]
+[connection signal="area_exited" from="Monk/MonkTriggerArea" to="Player/Player Body/PlayerDialogueManager" method="_on_monk_trigger_area_area_exited"]

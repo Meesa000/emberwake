@@ -1,14 +1,19 @@
-extends CharacterBody2D
+extends Node2D
 
-@onready var music = $"res://Assets/Ninja Adventure - Asset Pack/Audio/Musics/13 - Mystical.ogg"
-
+@onready var music = $AudioManager/Music
+var music_playing = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
+
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	
+
+		
 	
 	
