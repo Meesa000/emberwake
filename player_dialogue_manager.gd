@@ -13,21 +13,21 @@ func _process(delta: float) -> void:
 	pass
 	
 
-func _on_rynn_text_trigger_area_entered(area: Area2D) -> void:
-	Dialogic.start("rynnDialogue")
-	rynn_synn_voice.play()
-	
-
-func _on_rynn_text_trigger_area_exited(area: Area2D) -> void:
-	Dialogic.end_timeline()
-	
-
 func _on_synn_text_trigger_area_entered(area: Area2D) -> void:
 	Dialogic.start("synnDialogue")
 	rynn_synn_voice.play()
 	
 
 func _on_synn_text_trigger_area_exited(area: Area2D) -> void:
+	Dialogic.end_timeline()
+	
+
+func _on_rynn_text_trigger_area_entered(area: Area2D) -> void:
+	Dialogic.start("rynnDialogue")
+	rynn_synn_voice.play()
+	
+
+func _on_rynn_text_trigger_area_exited(area: Area2D) -> void:
 	Dialogic.end_timeline()
 	
 

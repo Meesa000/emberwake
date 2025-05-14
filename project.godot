@@ -22,6 +22,8 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
+"Character/player": "res://Assets/Dialogue/Character/player.dch",
+"Player/rynn": "res://Assets/Dialogue/Character/Player/rynn.dch",
 "player": "res://Assets/Dialogue/Character/Player/player.dch",
 "rynn": "res://Assets/Dialogue/Character/Rynn/rynn.dch",
 "shrine_keeper": "res://Assets/Dialogue/Character/Shrine_Keeper/shrine_keeper.dch",
@@ -29,10 +31,12 @@ directories/dch_directory={
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch"
 }
 directories/dtl_directory={
+"Character/player_altar_first_scene": "res://Assets/Dialogue/Character/player_altar_first_scene.dtl",
+"Player/rynnDialogue": "res://Assets/Dialogue/Character/Player/rynnDialogue.dtl",
 "player_altar_first_scene": "res://Assets/Dialogue/Character/Player/player_altar_first_scene.dtl",
 "player_monk_altar_convo": "res://player_monk_altar_convo.dtl",
-"rynnDialogue": "res://addons/dialogic/Modules/Style/synnDialogue.dtl",
-"synnDialogue": "res://Assets/Dialogue/Character/rynnDialogue.dtl"
+"rynnDialogue": "res://Assets/Dialogue/Character/rynnDialogue.dtl",
+"synnDialogue": "res://addons/dialogic/Modules/Style/synnDialogue.dtl"
 }
 glossary/default_case_sensitive=true
 variables={
